@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BIM_System" Class="databaseCacheDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(local);Initial Catalog=BIM_System;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="BIM_SystemConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbl_messages" Member="tbl_messages">
+    <Type Name="tbl_message">
+      <Column Name="msgId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="msgDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="msgExpDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="msgContent" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="msgIsDone" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_employees" Member="tbl_employees">
+    <Type Name="tbl_employee">
+      <Column Name="emId" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="emNIC" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="emName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="emIsDeleted" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="emAutoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="tbl_employee_tbl_credential" Member="tbl_credential" ThisKey="emId" OtherKey="emId" Type="tbl_credential" Cardinality="One" />
+      <Association Name="tbl_employee_tbl_employeeDetial" Member="tbl_employeeDetial" ThisKey="emId" OtherKey="emId" Type="tbl_employeeDetial" Cardinality="One" />
+      <Association Name="tbl_employee_tbl_transaction" Member="tbl_transactions" ThisKey="emId" OtherKey="emId" Type="tbl_transaction" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_credentials" Member="tbl_credentials">
+    <Type Name="tbl_credential">
+      <Column Name="emId" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="credUsername" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="credPassword" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="credAccess" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="tbl_employee_tbl_credential" Member="tbl_employee" ThisKey="emId" OtherKey="emId" Type="tbl_employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_employeeDetials" Member="tbl_employeeDetials">
+    <Type Name="tbl_employeeDetial">
+      <Column Name="emId" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="emdAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="emdPhone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="emdSalery" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="tbl_employee_tbl_employeeDetial" Member="tbl_employee" ThisKey="emId" OtherKey="emId" Type="tbl_employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_customers" Member="tbl_customers">
+    <Type Name="tbl_customer">
+      <Column Name="cusId" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cusNIC" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="cusName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cusAddress" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="cusPhone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cusIsDeleted" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="cusAutoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="tbl_customer_tbl_transaction" Member="tbl_transactions" ThisKey="cusId" OtherKey="cusId" Type="tbl_transaction" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_categories" Member="tbl_categories">
+    <Type Name="tbl_category">
+      <Column Name="catId" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="catName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="catSerIsItem" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="tbl_category_tbl_service" Member="tbl_services" ThisKey="catId" OtherKey="catId" Type="tbl_service" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_types" Member="tbl_types">
+    <Type Name="tbl_type">
+      <Column Name="typeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="serId" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="typeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="typePricePService" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="typeAvailableQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="typeMaxQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tbl_service_tbl_type" Member="tbl_service" ThisKey="serId" OtherKey="serId" Type="tbl_service" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_services" Member="tbl_services">
+    <Type Name="tbl_service">
+      <Column Name="serId" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="catId" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="serName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="serDesc" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="serImg" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="serIsDeleted" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="serAutoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="tbl_service_tbl_type" Member="tbl_types" ThisKey="serId" OtherKey="serId" Type="tbl_type" />
+      <Association Name="tbl_service_tbl_cart" Member="tbl_carts" ThisKey="serId" OtherKey="serId" Type="tbl_cart" />
+      <Association Name="tbl_category_tbl_service" Member="tbl_category" ThisKey="catId" OtherKey="catId" Type="tbl_category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_cart" Member="tbl_carts">
+    <Type Name="tbl_cart">
+      <Column Name="cartId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="transId" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="serId" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cartSerType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cartSerQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cartItemReservedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="cartNoOfDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cartPricePItem" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="cartItemIsReturned" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="cartItemIsCancelled" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Association Name="tbl_service_tbl_cart" Member="tbl_service" ThisKey="serId" OtherKey="serId" Type="tbl_service" IsForeignKey="true" />
+      <Association Name="tbl_transaction_tbl_cart" Member="tbl_transaction" ThisKey="transId" OtherKey="transId" Type="tbl_transaction" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_transactions" Member="tbl_transactions">
+    <Type Name="tbl_transaction">
+      <Column Name="transId" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="emId" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cusId" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="transPrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="transdateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="transMonth" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="transAutoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="tbl_transaction_tbl_cart" Member="tbl_carts" ThisKey="transId" OtherKey="transId" Type="tbl_cart" />
+      <Association Name="tbl_customer_tbl_transaction" Member="tbl_customer" ThisKey="cusId" OtherKey="cusId" Type="tbl_customer" IsForeignKey="true" />
+      <Association Name="tbl_employee_tbl_transaction" Member="tbl_employee" ThisKey="emId" OtherKey="emId" Type="tbl_employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.proc_retrieveTransYears" Method="proc_retrieveTransYears">
+    <ElementType Name="proc_retrieveTransYearsResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.proc_retrieveCusNIC" Method="proc_retrieveCusNIC">
+    <ElementType Name="proc_retrieveCusNICResult">
+      <Column Name="cusNIC" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

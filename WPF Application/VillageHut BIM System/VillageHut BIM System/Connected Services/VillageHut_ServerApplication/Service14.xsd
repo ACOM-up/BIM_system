@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VillageHut_web_service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VillageHut_web_service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOftbl_type">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_type" nillable="true" type="tns:tbl_type" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_type" nillable="true" type="tns:ArrayOftbl_type" />
+  <xs:complexType name="tbl_type">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="serId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_service" nillable="true" type="tns:tbl_service" />
+      <xs:element minOccurs="0" name="typeAvailableQty" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="typeId" type="xs:int" />
+      <xs:element minOccurs="0" name="typeMaxQty" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="typeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="typePricePService" nillable="true" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_type" nillable="true" type="tns:tbl_type" />
+  <xs:complexType name="tbl_service">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="catId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="serAutoId" type="xs:int" />
+      <xs:element minOccurs="0" name="serDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="serId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="serImg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="serIsDeleted" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="serName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_carts" nillable="true" type="tns:ArrayOftbl_cart" />
+      <xs:element minOccurs="0" name="tbl_category" nillable="true" type="tns:tbl_category" />
+      <xs:element minOccurs="0" name="tbl_types" nillable="true" type="tns:ArrayOftbl_type" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_service" nillable="true" type="tns:tbl_service" />
+  <xs:complexType name="ArrayOftbl_cart">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_cart" nillable="true" type="tns:tbl_cart" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_cart" nillable="true" type="tns:ArrayOftbl_cart" />
+  <xs:complexType name="tbl_cart">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cartId" type="xs:int" />
+      <xs:element minOccurs="0" name="cartItemIsCancelled" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cartItemIsReturned" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cartItemReservedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="cartNoOfDays" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="cartPricePItem" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="cartSerQty" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="cartSerType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="serId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_service" nillable="true" type="tns:tbl_service" />
+      <xs:element minOccurs="0" name="tbl_transaction" nillable="true" type="tns:tbl_transaction" />
+      <xs:element minOccurs="0" name="transId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_cart" nillable="true" type="tns:tbl_cart" />
+  <xs:complexType name="tbl_transaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cusId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="emId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_carts" nillable="true" type="tns:ArrayOftbl_cart" />
+      <xs:element minOccurs="0" name="tbl_customer" nillable="true" type="tns:tbl_customer" />
+      <xs:element minOccurs="0" name="tbl_employee" nillable="true" type="tns:tbl_employee" />
+      <xs:element minOccurs="0" name="transAutoId" type="xs:int" />
+      <xs:element minOccurs="0" name="transId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="transMonth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="transPrice" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="transdateTime" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_transaction" nillable="true" type="tns:tbl_transaction" />
+  <xs:complexType name="tbl_customer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cusAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cusAutoId" type="xs:int" />
+      <xs:element minOccurs="0" name="cusId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cusIsDeleted" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cusNIC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cusName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cusPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_transactions" nillable="true" type="tns:ArrayOftbl_transaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_customer" nillable="true" type="tns:tbl_customer" />
+  <xs:complexType name="ArrayOftbl_transaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_transaction" nillable="true" type="tns:tbl_transaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_transaction" nillable="true" type="tns:ArrayOftbl_transaction" />
+  <xs:complexType name="tbl_employee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="emAutoId" type="xs:int" />
+      <xs:element minOccurs="0" name="emId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="emIsDeleted" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="emNIC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="emName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_credential" nillable="true" type="tns:tbl_credential" />
+      <xs:element minOccurs="0" name="tbl_employeeDetial" nillable="true" type="tns:tbl_employeeDetial" />
+      <xs:element minOccurs="0" name="tbl_transactions" nillable="true" type="tns:ArrayOftbl_transaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_employee" nillable="true" type="tns:tbl_employee" />
+  <xs:complexType name="tbl_credential">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="credAccess" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="credPassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="credUsername" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="emId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_employee" nillable="true" type="tns:tbl_employee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_credential" nillable="true" type="tns:tbl_credential" />
+  <xs:complexType name="tbl_employeeDetial">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="emId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="emdAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="emdPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="emdSalery" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="tbl_employee" nillable="true" type="tns:tbl_employee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_employeeDetial" nillable="true" type="tns:tbl_employeeDetial" />
+  <xs:complexType name="tbl_category">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="catId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="catName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="catSerIsItem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tbl_services" nillable="true" type="tns:ArrayOftbl_service" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tbl_category" nillable="true" type="tns:tbl_category" />
+  <xs:complexType name="ArrayOftbl_service">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tbl_service" nillable="true" type="tns:tbl_service" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftbl_service" nillable="true" type="tns:ArrayOftbl_service" />
+  <xs:complexType name="ArrayOfproc_retrieveTransYearsResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="proc_retrieveTransYearsResult" nillable="true" type="tns:proc_retrieveTransYearsResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfproc_retrieveTransYearsResult" nillable="true" type="tns:ArrayOfproc_retrieveTransYearsResult" />
+  <xs:complexType name="proc_retrieveTransYearsResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Column1" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="proc_retrieveTransYearsResult" nillable="true" type="tns:proc_retrieveTransYearsResult" />
+  <xs:complexType name="ArrayOfproc_retrieveCusNICResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="proc_retrieveCusNICResult" nillable="true" type="tns:proc_retrieveCusNICResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfproc_retrieveCusNICResult" nillable="true" type="tns:ArrayOfproc_retrieveCusNICResult" />
+  <xs:complexType name="proc_retrieveCusNICResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cusNIC" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="proc_retrieveCusNICResult" nillable="true" type="tns:proc_retrieveCusNICResult" />
+</xs:schema>

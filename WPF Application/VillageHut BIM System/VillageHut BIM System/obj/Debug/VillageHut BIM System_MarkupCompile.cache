@@ -1,0 +1,20 @@
+﻿VillageHut BIM System
+
+
+exe
+C#
+.cs
+C:\Users\Arosha\Desktop\Application\WPF Application\VillageHut BIM System\VillageHut BIM System\obj\Debug\
+VillageHut_BIM_System
+none
+false
+DEBUG;TRACE
+C:\Users\Arosha\Desktop\Application\WPF Application\VillageHut BIM System\VillageHut BIM System\App.xaml
+151018561137
+
+29-519780343
+27-235350138
+User_Controls\Home.xaml;User_Controls\Inventory.xaml;MainWindow.xaml;User_Controls\Manage.xaml;User_Controls\Manage_Customers.xaml;User_Controls\Manage_Employees.xaml;User_Controls\Reports.xaml;Windows\Wn_AddViewCustomer.xaml;Windows\Wn_AddViewEmployee.xaml;Windows\Wn_AddViewService.xaml;Windows\Wn_Login.xaml;Windows\Wn_Monthly_Transactions.xaml;Windows\Wn_Overdue_Items.xaml;Windows\Wn_Print_Receipt.xaml;Windows\Wn_Upcoming_Reservations.xaml;
+
+False
+

@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:9127/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:9127/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:9127/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/VillageHut_web_service.API.Model" />
+      <xsd:import schemaLocation="http://localhost:9127/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/VillageHut_web_service" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="VillageHut_WebAPI_login_InputMessage">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveCategories" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveAllServices_InputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveAllServices" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveAllServices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveAllServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_searchServices_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchServices" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_searchServices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveOverdueItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveOverdueItems" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveOverdueItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveOverdueItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_searchOverdueItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchOverdueItems" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_searchOverdueItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchOverdueItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveUpcommingReservations_InputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveUpcommingReservations" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveUpcommingReservations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveUpcommingReservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_searchUpcommingReservations_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchUpcommingReservations" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_searchUpcommingReservations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchUpcommingReservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveMessages" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveTypes" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveTransactions" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveItems" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveEmployees" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_searchEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchEmployees" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_searchEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveCustomers_InputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveCustomers" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveCustomers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_searchCustomers_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchCustomers" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_searchCustomers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveReserveDates_InputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveReserveDates" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveReserveDates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveReserveDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveCart" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_retrieveCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:retrieveCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_getMaxEmpAutoGenNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMaxEmpAutoGenNo" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_getMaxEmpAutoGenNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMaxEmpAutoGenNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_getMaxCusAutoGenNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMaxCusAutoGenNo" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_getMaxCusAutoGenNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMaxCusAutoGenNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_getMaxSerAutoGenNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMaxSerAutoGenNo" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_getMaxSerAutoGenNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMaxSerAutoGenNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_getMaxTransAutoGenNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:getMaxTransAutoGenNo" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_getMaxTransAutoGenNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getMaxTransAutoGenNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_IUDEmployeeDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:IUDEmployeeDetails" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_IUDEmployeeDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IUDEmployeeDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_IUDCustomerDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:IUDCustomerDetails" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_IUDCustomerDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IUDCustomerDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_IUDServiceDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:IUDServiceDetails" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_IUDServiceDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IUDServiceDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_IUDTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:IUDTransaction" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_IUDTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IUDTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_cancelReserv_InputMessage">
+    <wsdl:part name="parameters" element="tns:cancelReserv" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_cancelReserv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:cancelReservResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_isReturned_InputMessage">
+    <wsdl:part name="parameters" element="tns:isReturned" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_isReturned_OutputMessage">
+    <wsdl:part name="parameters" element="tns:isReturnedResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_getTransYear_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTransYear" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_getTransYear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTransYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_getCustomerNIC_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCustomerNIC" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_getCustomerNIC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCustomerNICResponse" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_searchDupUsernames_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchDupUsernames" />
+  </wsdl:message>
+  <wsdl:message name="VillageHut_WebAPI_searchDupUsernames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchDupUsernamesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="VillageHut_WebAPI">
+    <wsdl:operation name="login">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/login" message="tns:VillageHut_WebAPI_login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/loginResponse" message="tns:VillageHut_WebAPI_login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="retrieveCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveCategories" message="tns:VillageHut_WebAPI_retrieveCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveCategoriesResponse" message="tns:VillageHut_WebAPI_retrieveCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="retrieveAllServices">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveAllServices" message="tns:VillageHut_WebAPI_retrieveAllServices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveAllServicesResponse" message="tns:VillageHut_WebAPI_retrieveAllServices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchServices">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/searchServices" message="tns:VillageHut_WebAPI_searchServices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/searchServicesResponse" message="tns:VillageHut_WebAPI_searchServices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="retrieveOverdueItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveOverdueItems" message="tns:VillageHut_WebAPI_retrieveOverdueItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveOverdueItemsResponse" message="tns:VillageHut_WebAPI_retrieveOverdueItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchOverdueItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/searchOverdueItems" message="tns:VillageHut_WebAPI_searchOverdueItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/searchOverdueItemsResponse" message="tns:VillageHut_WebAPI_searchOverdueItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="retrieveUpcommingReservations">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveUpcommingReservations" message="tns:VillageHut_WebAPI_retrieveUpcommingReservations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveUpcommingReservationsResponse" message="tns:VillageHut_WebAPI_retrieveUpcommingReservations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchUpcommingReservations">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/searchUpcommingReservations" message="tns:VillageHut_WebAPI_searchUpcommingReservations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/searchUpcommingReservationsResponse" message="tns:VillageHut_WebAPI_searchUpcommingReservations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="retrieveMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveMessages" message="tns:VillageHut_WebAPI_retrieveMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveMessagesResponse" message="tns:VillageHut_WebAPI_retrieveMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="retrieveTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveTypes" message="tns:VillageHut_WebAPI_retrieveTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveTypesResponse" message="tns:VillageHut_WebAPI_retrieveTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="retrieveTransactions">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveTransactions" message="tns:VillageHut_WebAPI_retrieveTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveTransactionsResponse" message="tns:VillageHut_WebAPI_retrieveTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="retrieveItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveItems" message="tns:VillageHut_WebAPI_retrieveItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveItemsResponse" message="tns:VillageHut_WebAPI_retrieveItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="retrieveEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveEmployees" message="tns:VillageHut_WebAPI_retrieveEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveEmployeesResponse" message="tns:VillageHut_WebAPI_retrieveEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/searchEmployees" message="tns:VillageHut_WebAPI_searchEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/searchEmployeesResponse" message="tns:VillageHut_WebAPI_searchEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="retrieveCustomers">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveCustomers" message="tns:VillageHut_WebAPI_retrieveCustomers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveCustomersResponse" message="tns:VillageHut_WebAPI_retrieveCustomers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchCustomers">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/searchCustomers" message="tns:VillageHut_WebAPI_searchCustomers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/searchCustomersResponse" message="tns:VillageHut_WebAPI_searchCustomers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="retrieveReserveDates">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveReserveDates" message="tns:VillageHut_WebAPI_retrieveReserveDates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveReserveDatesResponse" message="tns:VillageHut_WebAPI_retrieveReserveDates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="retrieveCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveCart" message="tns:VillageHut_WebAPI_retrieveCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/retrieveCartResponse" message="tns:VillageHut_WebAPI_retrieveCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMaxEmpAutoGenNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/getMaxEmpAutoGenNo" message="tns:VillageHut_WebAPI_getMaxEmpAutoGenNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/getMaxEmpAutoGenNoResponse" message="tns:VillageHut_WebAPI_getMaxEmpAutoGenNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMaxCusAutoGenNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/getMaxCusAutoGenNo" message="tns:VillageHut_WebAPI_getMaxCusAutoGenNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/getMaxCusAutoGenNoResponse" message="tns:VillageHut_WebAPI_getMaxCusAutoGenNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMaxSerAutoGenNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/getMaxSerAutoGenNo" message="tns:VillageHut_WebAPI_getMaxSerAutoGenNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/getMaxSerAutoGenNoResponse" message="tns:VillageHut_WebAPI_getMaxSerAutoGenNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getMaxTransAutoGenNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/getMaxTransAutoGenNo" message="tns:VillageHut_WebAPI_getMaxTransAutoGenNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/getMaxTransAutoGenNoResponse" message="tns:VillageHut_WebAPI_getMaxTransAutoGenNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IUDEmployeeDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/IUDEmployeeDetails" message="tns:VillageHut_WebAPI_IUDEmployeeDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/IUDEmployeeDetailsResponse" message="tns:VillageHut_WebAPI_IUDEmployeeDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IUDCustomerDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/IUDCustomerDetails" message="tns:VillageHut_WebAPI_IUDCustomerDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/IUDCustomerDetailsResponse" message="tns:VillageHut_WebAPI_IUDCustomerDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IUDServiceDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/IUDServiceDetails" message="tns:VillageHut_WebAPI_IUDServiceDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/IUDServiceDetailsResponse" message="tns:VillageHut_WebAPI_IUDServiceDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IUDTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/IUDTransaction" message="tns:VillageHut_WebAPI_IUDTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/IUDTransactionResponse" message="tns:VillageHut_WebAPI_IUDTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelReserv">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/cancelReserv" message="tns:VillageHut_WebAPI_cancelReserv_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/cancelReservResponse" message="tns:VillageHut_WebAPI_cancelReserv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="isReturned">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/isReturned" message="tns:VillageHut_WebAPI_isReturned_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/isReturnedResponse" message="tns:VillageHut_WebAPI_isReturned_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTransYear">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/getTransYear" message="tns:VillageHut_WebAPI_getTransYear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/getTransYearResponse" message="tns:VillageHut_WebAPI_getTransYear_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerNIC">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/getCustomerNIC" message="tns:VillageHut_WebAPI_getCustomerNIC_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/getCustomerNICResponse" message="tns:VillageHut_WebAPI_getCustomerNIC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchDupUsernames">
+      <wsdl:input wsaw:Action="http://tempuri.org/VillageHut_WebAPI/searchDupUsernames" message="tns:VillageHut_WebAPI_searchDupUsernames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/VillageHut_WebAPI/searchDupUsernamesResponse" message="tns:VillageHut_WebAPI_searchDupUsernames_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_VillageHut_WebAPI" type="tns:VillageHut_WebAPI">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveCategories">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/retrieveCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveAllServices">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/retrieveAllServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchServices">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/searchServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveOverdueItems">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/retrieveOverdueItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchOverdueItems">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/searchOverdueItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveUpcommingReservations">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/retrieveUpcommingReservations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchUpcommingReservations">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/searchUpcommingReservations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveMessages">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/retrieveMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveTypes">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/retrieveTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveTransactions">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/retrieveTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveItems">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/retrieveItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveEmployees">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/retrieveEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchEmployees">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/searchEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveCustomers">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/retrieveCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchCustomers">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/searchCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveReserveDates">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/retrieveReserveDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveCart">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/retrieveCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMaxEmpAutoGenNo">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/getMaxEmpAutoGenNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMaxCusAutoGenNo">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/getMaxCusAutoGenNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMaxSerAutoGenNo">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/getMaxSerAutoGenNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMaxTransAutoGenNo">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/getMaxTransAutoGenNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IUDEmployeeDetails">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/IUDEmployeeDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IUDCustomerDetails">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/IUDCustomerDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IUDServiceDetails">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/IUDServiceDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IUDTransaction">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/IUDTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelReserv">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/cancelReserv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isReturned">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/isReturned" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransYear">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/getTransYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomerNIC">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/getCustomerNIC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchDupUsernames">
+      <soap:operation soapAction="http://tempuri.org/VillageHut_WebAPI/searchDupUsernames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_VillageHut_WebAPI" binding="tns:BasicHttpBinding_VillageHut_WebAPI">
+      <soap:address location="http://localhost:9127/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

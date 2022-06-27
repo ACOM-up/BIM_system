@@ -1,0 +1,198 @@
+﻿<UserControl x:Class="VillageHut_BIM_System.User_Controls.Reports"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VillageHut_BIM_System.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="960">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <Button FontSize="20" Foreground="#EEE" Margin="90 70 20 30" Grid.Column="0" Grid.Row="0" BorderThickness="0" FontFamily="Yu Gothic UI Semibold" x:Name="btnPrintReceipt" Click="btnPrintReceipt_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="OverridesDefaultStyle" Value="True"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius='7' Name="Background" BorderThickness="0 0 0 0" BorderBrush="Transparent" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Background" Property="Background" >
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FF35A1C1" Offset="0"/>
+                                                    <GradientStop Color="#FF49A9C5" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1F95B8" Offset="0"/>
+                    <GradientStop Color="#FF35A0BF" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Width="150" Grid.Row="0" Source="/VillageHut BIM System;component/Icons/printer1.png" ></Image>
+                <TextBlock Padding="10" Margin="5 10 5 -10" HorizontalAlignment="Center" Grid.Row="1" Text="Print Receipt"></TextBlock>
+            </Grid>
+        </Button>
+
+        <Button x:Name="btnMonthlyTrans" Click="btnMonthlyTrans_Click" Foreground="#EEE" Margin="20 70 90 30" FontSize="20" Grid.Column="1" Grid.Row="0" BorderThickness="0" FontFamily="Yu Gothic UI Semibold">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="OverridesDefaultStyle" Value="True"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius='7' Name="Background" BorderThickness="0 0 0 0" BorderBrush="Transparent" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Background" Property="Background" >
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FF4EB88F" Offset="0"/>
+                                                    <GradientStop Color="#FF59BB95" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF30AF7E" Offset="0"/>
+                    <GradientStop Color="#FF4EB28B" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Width="160" Margin="0 0 0 10" Grid.Row="0" Source="/VillageHut BIM System;component/Icons/coins.png" ></Image>
+                <TextBlock Padding="10" Margin="5 0 5 -25" HorizontalAlignment="Center" Grid.Row="1" Text="Transactions"></TextBlock>
+            </Grid>
+
+        </Button>
+
+        <Button Click="Button_Click" Foreground="#EEE" Margin="90 30 20 70" FontSize="20" Grid.Column="0" Grid.Row="1" BorderThickness="0" FontFamily="Yu Gothic UI Semibold">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="OverridesDefaultStyle" Value="True"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius='7' Name="Background" BorderThickness="0 0 0 0" BorderBrush="Transparent" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Background" Property="Background" >
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FFECA33F" Offset="0"/>
+                                                    <GradientStop Color="#FFE4AC5E" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFE49425" Offset="0"/>
+                    <GradientStop Color="#FFE6A449" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Width="150" Grid.Row="0" Source="/VillageHut BIM System;component/Icons/trucking.png" ></Image>
+                <TextBlock Padding="10" Margin="5 10 5 -10" HorizontalAlignment="Center" Grid.Row="1" Text="Upcoming Reservations"></TextBlock>
+            </Grid>
+
+        </Button>
+
+        <Button Click="Button_Click_1" Foreground="#EEE" Margin="20 30 90 70" FontSize="20" Grid.Column="1" Grid.Row="1" BorderThickness="0" FontFamily="Yu Gothic UI Semibold">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="OverridesDefaultStyle" Value="True"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius='7' Name="Background" BorderThickness="0 0 0 0" BorderBrush="Transparent" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Background" Property="Background" >
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FF8D5D5A" Offset="0"/>
+                                                    <GradientStop Color="#FF976764" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF854E4B" Offset="0"/>
+                    <GradientStop Color="#FF8D5E5B" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Width="150" Grid.Row="0" Source="/VillageHut BIM System;component/Icons/calendar1.png" ></Image>
+                <TextBlock Padding="10" Margin="5 10 5 -10" HorizontalAlignment="Center" Grid.Row="1" Text="Overdue Items"></TextBlock>
+            </Grid>
+
+        </Button>
+
+
+
+    </Grid>
+</UserControl>

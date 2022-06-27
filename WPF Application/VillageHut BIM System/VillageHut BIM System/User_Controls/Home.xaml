@@ -1,0 +1,384 @@
+﻿<UserControl x:Class="VillageHut_BIM_System.User_Controls.Home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VillageHut_BIM_System"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="960">
+
+
+    <UserControl.Resources>
+        <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+        <Style x:Key="HoverAnimation" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="Background" 
+                            BorderThickness="0 0 0 0"
+                            BorderBrush="Transparent" 
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Background" Property="Background" >
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#FF4488F0" Offset="0"/>
+                                            <GradientStop Color="#FF3EB0FF" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Foreground="#CA003F" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Overdue Items" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"></TextBlock>
+        
+        <Button x:Name="btnOverDueViewAll" Click="btnOverDueViewAll_Click" Grid.Column="2" Grid.Row="0" Content="View all" Foreground="#CA003F" Margin="70,10,10,10" Background="#FFDDDDDD" BorderThickness="0"/>
+
+        <ListView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Margin="10" x:Name="lstOverdue_home">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Service Name" Width="150">
+                        <GridViewColumn.HeaderContainerStyle>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                <Setter Property="Padding" Value="10"/>
+                            </Style>
+                        </GridViewColumn.HeaderContainerStyle>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border Margin="-6" BorderThickness="0 0 0 1" BorderBrush="#BBB">
+                                    <TextBlock Width="500" Padding="10 10 10 10" Text="{Binding serName}"/>
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Due Date" Width="150">
+                        <GridViewColumn.HeaderContainerStyle>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                <Setter Property="Padding" Value="10"/>
+                            </Style>
+                        </GridViewColumn.HeaderContainerStyle>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border Margin="-6" BorderThickness="1 0 0 1" BorderBrush="#BBB">
+                                    <TextBlock Width="500" Padding="10" Text="{Binding dueDate}"/>
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Customer Name" Width="150">
+                        <GridViewColumn.HeaderContainerStyle>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                <Setter Property="Padding" Value="10"/>
+                            </Style>
+                        </GridViewColumn.HeaderContainerStyle>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border Margin="-6" BorderThickness="1 0 0 1" BorderBrush="#BBB">
+                                    <TextBlock Width="500" Padding="10" Text="{Binding cusName}"/>
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+
+
+        <TextBlock Foreground="#FF9824" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Upcoming Reservations" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="0"></TextBlock>
+        
+        <Button x:Name="btnUpResViewAll" Click="btnUpResViewAll_Click" Grid.Column="5" Grid.Row="0" Content="View all" Foreground="#FF9824" Margin="70,10,10,10" BorderThickness="0"/>
+        
+        <ListView Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" Margin="10" x:Name="lstUpRes_home">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Service Name" Width="150">
+                        <GridViewColumn.HeaderContainerStyle>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                <Setter Property="Padding" Value="10"/>
+                            </Style>
+                        </GridViewColumn.HeaderContainerStyle>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border Margin="-6" BorderThickness="0 0 0 1" BorderBrush="#BBB">
+                                    <TextBlock Width="500" Padding="10 10 10 10" Text="{Binding serName}"/>
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Reserved Date" Width="150">
+                        <GridViewColumn.HeaderContainerStyle>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                <Setter Property="Padding" Value="10"/>
+                            </Style>
+                        </GridViewColumn.HeaderContainerStyle>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border Margin="-6" BorderThickness="1 0 0 1" BorderBrush="#BBB">
+                                    <TextBlock Width="500" Padding="10" Text="{Binding reservedDate}"/>
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Customer Name" Width="150">
+                        <GridViewColumn.HeaderContainerStyle>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                <Setter Property="Padding" Value="10"/>
+                            </Style>
+                        </GridViewColumn.HeaderContainerStyle>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border Margin="-6" BorderThickness="1 0 0 1" BorderBrush="#BBB">
+                                    <TextBlock Width="500" Padding="10" Text="{Binding cusName}"/>
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+
+
+
+        <TextBlock Foreground="#222" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Printer Queue" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2"></TextBlock>
+        <Button Grid.Column="2" Grid.Row="2" Content="Clear all" Foreground="#222" Margin="70,10,10,10" BorderThickness="0"/>
+        <ListBox Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Margin="10" x:Name="lstPrinterQ_home" ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding Path=pQItem}"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+
+
+        <TextBlock Foreground="#006601" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Messages and Notes" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2"></TextBlock>
+        
+        <Button Grid.Column="5" Grid.Row="2" Content="Dismiss" Foreground="#006601" Margin="70,10,10,10" BorderThickness="0"/>
+
+        <ListView Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="3" Margin="10" x:Name="lstMsgs_home">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Message" Width="225">
+                        <GridViewColumn.HeaderContainerStyle>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                <Setter Property="Padding" Value="10"/>
+                            </Style>
+                        </GridViewColumn.HeaderContainerStyle>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border Margin="-6" BorderThickness="0 0 0 1" BorderBrush="#BBB">
+                                    <TextBlock Width="500" Padding="10 10 10 10" Text="{Binding msgContent}"/>
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Date" Width="225">
+                        <GridViewColumn.HeaderContainerStyle>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                <Setter Property="Padding" Value="10"/>
+                            </Style>
+                        </GridViewColumn.HeaderContainerStyle>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border Margin="-6" BorderThickness="1 0 0 1" BorderBrush="#BBB">
+                                    <TextBlock Width="500" Padding="10" Text="{Binding msgDate}"/>
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+
+        <Button x:Name="btnGotoPrint" Click="btnGotoPrint_Click_1" Foreground="#EEE" Margin="10 10" Content="Goto Print receipt" Grid.Column="0" Grid.Row="4" BorderThickness="0">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="OverridesDefaultStyle" Value="True"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Name="Background" CornerRadius='3' BorderThickness="0 0 0 0" BorderBrush="Transparent" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Background" Property="Background" >
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FF35A1C1" Offset="0"/>
+                                                    <GradientStop Color="#FF49A9C5" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1F95B8" Offset="0"/>
+                    <GradientStop Color="#FF35A0BF" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        
+        <Button Margin="15 10" Content="Print all" Grid.Column="1" Grid.Row="4" Foreground="#EEE">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="OverridesDefaultStyle" Value="True"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Name="Background" CornerRadius='3' BorderThickness="0 0 0 0" BorderBrush="Transparent" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Background" Property="Background" >
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FFEA736D" Offset="0"/>
+                                                    <GradientStop Color="#FFF1A5A2" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFEA554E" Offset="0"/>
+                    <GradientStop Color="#FFF18B86" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Margin="15 10" Content="Clear" Grid.Column="2" Grid.Row="4" Foreground="#EEE">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="OverridesDefaultStyle" Value="True"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Name="Background" CornerRadius='3' BorderThickness="0 0 0 0" BorderBrush="Transparent" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Background" Property="Background" >
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FF858585" Offset="0"/>
+                                                    <GradientStop Color="#FFA4A4A4" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF707070" Offset="0"/>
+                    <GradientStop Color="#FF7E7E7E" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        
+        <Button x:Name="btnRefreshAll" Click="btnRefreshAll_Click_1" Margin="50 10 10 10" Content="Refresh all" Grid.Column="5" Grid.Row="4" Foreground="#EEE">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="OverridesDefaultStyle" Value="True"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Name="Background" CornerRadius='3' BorderThickness="0 0 0 0" BorderBrush="Transparent" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Background" Property="Background">
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FF52D1A9" Offset="0"/>
+                                                    <GradientStop Color="#FF6AD4B2" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF29C795" Offset="0"/>
+                    <GradientStop Color="#FF5EB89B" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+
+    </Grid>
+</UserControl>

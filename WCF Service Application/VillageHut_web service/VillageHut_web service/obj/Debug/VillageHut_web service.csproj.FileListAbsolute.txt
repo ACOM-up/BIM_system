@@ -1,0 +1,12 @@
+D:\Docs\SLIIT\Year 2\Semester 2\MODULES\ITP\PROJECT\Application\WCF Service Application\VillageHut_web service\VillageHut_web service\bin\VillageHut_web service.dll.config
+D:\Docs\SLIIT\Year 2\Semester 2\MODULES\ITP\PROJECT\Application\WCF Service Application\VillageHut_web service\VillageHut_web service\bin\VillageHut_web service.dll
+D:\Docs\SLIIT\Year 2\Semester 2\MODULES\ITP\PROJECT\Application\WCF Service Application\VillageHut_web service\VillageHut_web service\bin\VillageHut_web service.pdb
+D:\Docs\SLIIT\Year 2\Semester 2\MODULES\ITP\PROJECT\Application\WCF Service Application\VillageHut_web service\VillageHut_web service\obj\Debug\VillageHut_web service.csprojAssemblyReference.cache
+D:\Docs\SLIIT\Year 2\Semester 2\MODULES\ITP\PROJECT\Application\WCF Service Application\VillageHut_web service\VillageHut_web service\obj\Debug\VillageHut_web service.csproj.CoreCompileInputs.cache
+D:\Docs\SLIIT\Year 2\Semester 2\MODULES\ITP\PROJECT\Application\WCF Service Application\VillageHut_web service\VillageHut_web service\obj\Debug\VillageHut_web service.dll
+D:\Docs\SLIIT\Year 2\Semester 2\MODULES\ITP\PROJECT\Application\WCF Service Application\VillageHut_web service\VillageHut_web service\obj\Debug\VillageHut_web service.pdb
+C:\Users\Arosha\Desktop\Application\WCF Service Application\VillageHut_web service\VillageHut_web service\bin\VillageHut_web service.dll
+C:\Users\Arosha\Desktop\Application\WCF Service Application\VillageHut_web service\VillageHut_web service\bin\VillageHut_web service.pdb
+C:\Users\Arosha\Desktop\Application\WCF Service Application\VillageHut_web service\VillageHut_web service\obj\Debug\VillageHut_web service.csprojResolveAssemblyReference.cache
+C:\Users\Arosha\Desktop\Application\WCF Service Application\VillageHut_web service\VillageHut_web service\obj\Debug\VillageHut_web service.dll
+C:\Users\Arosha\Desktop\Application\WCF Service Application\VillageHut_web service\VillageHut_web service\obj\Debug\VillageHut_web service.pdb
